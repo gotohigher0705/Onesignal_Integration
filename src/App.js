@@ -10,7 +10,7 @@ function App() {
 	useEffect(() => {
 		OneSignal.push(() => {
 			OneSignal.init({
-			  appId: "YOUR-APP-ID"
+			  appId: process.env.REACT_APP_API_KEY
 			})
 		  });
 	}, []);
