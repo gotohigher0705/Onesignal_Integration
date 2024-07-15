@@ -4,17 +4,7 @@ import OneSignal from 'react-onesignal';
 import { useEffect, useState } from 'react';
 
 function App() {
-	window.OneSignal = window.OneSignal || [];
-	const OneSignal = window.OneSignal;
-
-	useEffect(() => {
-		OneSignal.push(() => {
-			OneSignal.init({
-			  appId: process.env.REACT_APP_API_KEY
-			})
-		  });
-	}, []);
-
+	
 	return (
 		<div className='App'>
 			<header className='App-header'>
