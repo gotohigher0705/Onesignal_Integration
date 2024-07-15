@@ -4,17 +4,15 @@ import OneSignal from 'react-onesignal';
 import { useEffect, useState } from 'react';
 
 function App() {
-	const [initialize, seInitialize] = useState(false);
-	useEffect(() => {
-		async function runOneSignal() {
-			await OneSignal.init({
-				appId: process.env.API_KEY,
-				allowLocalhostAsSecureOrigin: true,
-			});
-			OneSignal.Slidedown.promptPush();
-		}
+	window.OneSignal = window.OneSignal || [];
+	const OneSignal = window.OneSignal;
 
-    runOneSignal();
+	useEffect(() => {
+		OneSignal.push(() => {
+			OneSignal.init({
+			  appId: "YOUR-APP-ID"
+			})
+		  });
 	}, []);
 
 	return (
